@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import winston from 'winston';
-import { errorFormattingService } from '../services/errorFormattingService';
+import { errorFormattingService } from '../services/error-formatting.service';
 
 export default function handleError(
   err,
