@@ -1,4 +1,4 @@
-import { errorFormattingService } from '../../../src/services/errorFormattingService';
+import { errorFormattingService } from '../../../src/services/error-formatting.service';
 
 
 describe('Error Formatting Service', () => {
