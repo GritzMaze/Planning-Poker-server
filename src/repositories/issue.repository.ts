@@ -25,11 +25,14 @@ export class IssueRepository {
   }
 
   async update(issue: Issue) {
-    return await this.issueRepository.update({...issue}, {
-      where: {
-        id: issue.id
+    return await this.issueRepository.update(
+      { ...issue },
+      {
+        where: {
+          id: issue.id
+        }
       }
-    });
+    );
   }
 
   async delete(issueId: number) {

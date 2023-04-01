@@ -2,10 +2,10 @@ import { Sequelize } from 'sequelize-typescript';
 import { Issue } from '../models/issue.model';
 
 export const connect = () => {
-  const hostName = process.env.HOST;
-  const userName = process.env.USER;
-  const password = String(process.env.PASSWORD);
-  const database = process.env.DB;
+  //const hostName = process.env.HOST;
+  //const userName = process.env.USER;
+  //const password = String(process.env.PASSWORD);
+  //const database = process.env.DB;
 
   const sequelize = new Sequelize('scrum-manager', 'postgres', 'admin', {
     host: 'localhost',
