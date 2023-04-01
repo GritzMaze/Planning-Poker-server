@@ -4,6 +4,7 @@ import winston from 'winston';
 import 'winston-daily-rotate-file';
 import handleError from './middlewares/errorHandler';
 import routes from './routes';
+import 'dotenv/config';
 
 export default class App {
   public express;

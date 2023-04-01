@@ -6,6 +6,7 @@ import {
   requestLogLevel
 } from '../middlewares/requestLogging';
 import notFound from './notFound';
+import { issueRouter } from './issue.router';
 
 const router = Router();
 
@@ -17,6 +18,8 @@ router.use(requestLogLevel(LogLevel.info), logRequest);
 // router.use(authenticate);
 
 // TODO: Add routes
+
+router.use('/issue', issueRouter);
 
 router.use(notFound);
 
