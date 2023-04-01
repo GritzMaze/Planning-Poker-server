@@ -7,17 +7,17 @@ const convictConfig = convict({
   db: {
     user: {
       doc: 'DB User',
-      env: 'DB_USER',
+      env: 'postgres',
       default: 'postgres',
     },
     password: {
       doc: 'DB Password',
-      env: 'DB_PASSWORD',
-      default: 'postgres',
+      env: 'admin',
+      default: 'admin',
     },
     database: {
       doc: 'DB database name',
-      env: 'DB_NAME',
+      env: 'scrum-manager',
       default: 'template_database',
     },
     host: {
