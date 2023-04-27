@@ -26,11 +26,9 @@ export class UserService {
 
   async findOrThrow(id: number): Promise<User> {
     const user = await this.find(id);
-
     if (!user) {
       throw new Error(`User with id ${id} not found`);
     }
-
     return user;
   }
 
