@@ -17,7 +17,7 @@ export default class App {
     this.mountRoutes();
   }
 
-  public initLogger() {
+  private initLogger() {
     const loggingDir = config.get('logger.directory');
     const environment = config.get('environment');
 
