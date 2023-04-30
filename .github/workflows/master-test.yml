@@ -1,4 +1,4 @@
-name: BUILD CI
+name: TEST
 
 on:
   pull_request:
@@ -6,32 +6,8 @@ on:
 
   workflow_dispatch:
 
-env:
-  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/template_test?schema=public
-  APP_PORT: 3000
-
-
 jobs:
-  build_server:
-    name: Build Server
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-      - name: Generate Prisma Client
-        run: npx prisma generate
-      - name: Install dependencies
-        run: npm ci
-      - name: Lint
-        run: npm run lint
-      - name: Build
-        run: npm run build --if-present
-
-  test_server:
+ test_server:
     name: Test Server
     runs-on: ubuntu-latest
 
@@ -41,7 +17,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: template_test
+          POSTGRES_DB: mindmap_test
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5

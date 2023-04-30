@@ -2,12 +2,18 @@
 
 <div align="center">
 
-![Contributors](https://img.shields.io/badge/contributors-4-brightgreen)
-![Forks](https://img.shields.io/badge/forks-0-blue)
-![Stars](https://img.shields.io/badge/stars-0-blue)
-![Issues](https://img.shields.io/badge/issues-0%20open-yellow)
+![Contributors](https://img.shields.io/github/contributors/GritzMaze/server-template?color=brightgreen&logo=github&logoColor=181717)
+![Forks](https://img.shields.io/github/forks/GritzMaze/server-template?color=blue&logo=github&logoColor=181717)
+![Stars](https://img.shields.io/github/stars/GritzMaze/server-template?color=blue&logo=github&logoColor=181717)
+![Issues](https://img.shields.io/github/issues/GritzMaze/server-template?color=yellow&logo=github&logoColor=181717)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+ </div>
+
+ <br>
+ <div align="center">
+    <a href="https://github.com/GritzMaze/server-template/actions/workflows/master-build.yml"><img src="https://github.com/GritzMaze/server-template/actions/workflows/master-build.yml/badge.svg" alt="build" ></a>
+    <a href="https://github.com/GritzMaze/server-template/actions/workflows/master-test.yml"><img src="https://github.com/GritzMaze/server-template/actions/workflows/master-test.yml/badge.svg" alt="build" ></a>
  </div>
 
 <!-- PROJECT LOGO -->
@@ -97,7 +103,7 @@ In order to install the project locally, you need to have Docker installed.
 1. Clone the repo
 
 ```sh
-git clone https://github.com/GritzMaze/Mindmap.git
+git clone https://github.com/GritzMaze/server-template.git
 ```
 
 2. Configure the environment variables in the docker-compose.yml file or you can leave the default ones.
