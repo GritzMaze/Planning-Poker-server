@@ -18,6 +18,8 @@ jobs:
           node-version: '16'
       - name: Install dependencies
         run: npm ci
+      - name: lint
+        run: npm run lint
       - name: tests
         run: npm run test
       - name: build

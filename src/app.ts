@@ -28,7 +28,7 @@ export default class App {
     winston.add(
       new winston.transports.DailyRotateFile({
         dirname: loggingDir,
-        filename: 'mindmap-%DATE%.log',
+        filename: 'template-%DATE%.log',
         datePattern: 'YYYY-MM-DD',
         maxFiles: '14d',
         format: winston.format.combine(winston.format.timestamp(), formatter)
