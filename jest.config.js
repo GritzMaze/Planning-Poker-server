@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'mindmap-server',
+  displayName: 'template-server',
   preset: 'ts-jest',
   testEnvironment: 'node',
   testMatch: ['**/*.test.ts'],

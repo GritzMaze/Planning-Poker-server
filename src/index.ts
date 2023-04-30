@@ -6,7 +6,6 @@ const app = new App();
 
 async function start() {
   await app.init();
-  // TODO: Get port from config
   const port = config.get('server.port');
 
   app.express.listen(port, err => {

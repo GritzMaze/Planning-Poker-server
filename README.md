@@ -15,9 +15,9 @@
 <div align="center">
   <a href="#">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://i.imgur.com/KyDgAFI.png">
+    <!-- <source media="(prefers-color-scheme: dark)" srcset="https://i.imgur.com/KyDgAFI.png">
     <source media="(prefers-color-scheme: light)" srcset="https://i.imgur.com/WoKCj3e.png">
-    <img src="https://i.imgur.com/KyDgAFI.png" alt="Logo" width="" height="300">
+    <img src="https://i.imgur.com/KyDgAFI.png" alt="Logo" width="" height="300"> -->
     </picture>
   </a>
 </div>
@@ -52,7 +52,7 @@
 
 # Introduction
 
-Mindmap is a web application that allows users to create mind maps and share them with other users. The application is built with React, TypeScript, Node.js, Express, PostgreSQL, Material-UI, Prisma ORM, Docker, Git and Github Actions.
+Template is a web application that allows users to create mind maps and share them with other users. The application is built with React, TypeScript, Node.js, Express, PostgreSQL, Material-UI, Prisma ORM, Docker, Git and Github Actions.
 
 <div align="right"><p align="right">(<a href="#top">back to top</a>)</p></div>
 
@@ -128,7 +128,7 @@ docker-compose up --build -d
 
 - **How to run the tests?**
 
-  - Currently, only the server has tests. To run them, you need to go to the server directory and run the following command:
+  -  To run them, you need to run the following command:
 
   ```sh
     npm run test
@@ -147,10 +147,7 @@ Description of the license can be found [here](https://opensource.org/licenses/M
 
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/Kamelia24"><img src="https://i.imgur.com/5XntyAW.jpg" width="100px;" alt=""/><br /><sub><b>Kamelia Atanasova</b></sub></a><br /> <a href="#" title="Student">💻</a></td>
-    <td align="center"><a href="https://github.com/Martimbuka"><img src="https://i.imgur.com/5XntyAW.jpg" width="100px;" alt=""/><br /><sub><b>Martin Jivkov</b></sub></a><br /> <a href="#" title="Student">💻</a></td>
-    <td align="center"><a href="https://github.com/mihaylovak"><img src="https://i.imgur.com/5XntyAW.jpg" width="100px;" alt=""/><br /><sub><b>Mihaela Kolarova</b></sub></a><br /> <a href="#" title="Student">💻</a></td>
-    <td align="center"><a href="https://github.com/GritzMaze"><img src="https://i.imgur.com/5XntyAW.jpg" width="100px;" alt=""/><br /><sub><b>Vesselin Jivkov</b></sub></a><br /> <a href="#" title="Student">💻</a></td>
+    <td align="center"><a href="https://github.com/GritzMaze"><img src="https://avatars.githubusercontent.com/u/29309862?v=4" width="100px;" alt=""/><br /><sub><b>Vesselin Jivkov</b></sub></a><br /> <a href="#" title="Student">💻</a></td>
     </tr>
 </table>
 
