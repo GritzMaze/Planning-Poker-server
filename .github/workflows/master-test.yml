@@ -6,11 +6,6 @@ on:
 
   workflow_dispatch:
 
-env:
-  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/mindmap_test?schema=public
-  APP_PORT: 3000
- 
-
 jobs:
  test_server:
     name: Test Server
@@ -35,25 +30,8 @@ jobs:
         with:
           node-version: 18.x
       - name: Install dependencies
-        run: cd server && npm ci
+        run: npm ci
       - name: Generate Prisma Client
-        run: cd server && npx prisma generate
+        run: npx prisma generate
       - name: Run tests
-        run: cd server && npm run test
-
-
- test_client:
-    name: Test Client
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Git repository
-        uses: actions/checkout@v3
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-      - name: Install dependencies
-        run: cd client && npm ci
-      - name: Run tests
-        run: cd client && npm run test
+        run: npm run test
