@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/mindmap_test?schema=public
+  DATABASE_URL: postgresql://postgres:postgres@localhost:5432/template_test?schema=public
   APP_PORT: 3000
 
 
@@ -23,17 +23,16 @@ jobs:
         with:
           node-version: 18.x
       - name: Generate Prisma Client
-        run: cd server && npx prisma generate
+        run: npx prisma generate
       - name: Install dependencies
-        run: cd server && npm ci
+        run: npm ci
       - name: Lint
-        run: cd server && npm run lint
+        run: npm run lint
       - name: Build
-        run: cd server && npm run build --if-present
+        run: npm run build --if-present
 
-  
-  build_client:
-    name: Build Client
+  test_server:
+    name: Test Server
     runs-on: ubuntu-latest
 
     services: 
@@ -42,7 +41,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: mindmap_test
+          POSTGRES_DB: template_test
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
@@ -55,6 +54,8 @@ jobs:
         with:
           node-version: 18.x
       - name: Install dependencies
-        run: cd client && npm ci
-      - name: Build
-        run: cd client && npm run build --if-present 
+        run: npm ci
+      - name: Generate Prisma Client
+        run: npx prisma generate
+      - name: Run tests
+        run: npm run test
