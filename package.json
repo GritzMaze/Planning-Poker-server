@@ -1,7 +1,7 @@
 {
-  "name": "mindmap",
+  "name": "scrum-manager",
   "version": "1.0.0",
-  "description": "Visualize your thoughts",
+  "description": "Scrum Manager",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GritzMaze/server-template.git"
+    "url": "git+https://github.com/GritzMaze/Scrum-Manager-server.git"
   },
-  "author": "Vesselin Jivkov, GritzMaze",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GritzMaze/server-template.git/issues"
+    "url": "https://github.com/GritzMaze/Scrum-Manager-server.git/issues"
   },
-  "homepage": "https://github.com/GritzMaze/server-template.git#readme",
+  "homepage": "https://github.com/GritzMaze/Scrum-Manager-server.git#readme",
   "dependencies": {
     "@prisma/client": "^4.12.0",
     "axios": "^1.2.1",
