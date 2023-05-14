@@ -15,7 +15,7 @@ const convictConfig = convict({
       doc: 'Database config',
       env: 'DATABASE_URL',
       default:
-        'postgresql://postgres:postgres@localhost:5432/template?schema=public'
+        'postgresql://postgres:postgres@localhost:5432/scrum-manager?schema=public'
     }
   },
   server: {

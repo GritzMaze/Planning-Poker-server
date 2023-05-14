@@ -2,18 +2,18 @@
 
 <div align="center">
 
-![Contributors](https://img.shields.io/github/contributors/GritzMaze/server-template?color=brightgreen&logo=github&logoColor=181717)
-![Forks](https://img.shields.io/github/forks/GritzMaze/server-template?color=blue&logo=github&logoColor=181717)
-![Stars](https://img.shields.io/github/stars/GritzMaze/server-template?color=blue&logo=github&logoColor=181717)
-![Issues](https://img.shields.io/github/issues/GritzMaze/server-template?color=yellow&logo=github&logoColor=181717)
+![Contributors](https://img.shields.io/github/contributors/GritzMaze/Scrum-Manager-server?color=brightgreen&logo=github&logoColor=181717)
+![Forks](https://img.shields.io/github/forks/GritzMaze/Scrum-Manager-server?color=blue&logo=github&logoColor=181717)
+![Stars](https://img.shields.io/github/stars/GritzMaze/Scrum-Manager-server?color=blue&logo=github&logoColor=181717)
+![Issues](https://img.shields.io/github/issues/GritzMaze/Scrum-Manager-server?color=yellow&logo=github&logoColor=181717)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
  </div>
 
  <br>
  <div align="center">
-    <a href="https://github.com/GritzMaze/server-template/actions/workflows/master-build.yml"><img src="https://github.com/GritzMaze/server-template/actions/workflows/master-build.yml/badge.svg" alt="build" ></a>
-    <a href="https://github.com/GritzMaze/server-template/actions/workflows/master-test.yml"><img src="https://github.com/GritzMaze/server-template/actions/workflows/master-test.yml/badge.svg" alt="build" ></a>
+    <a href="https://github.com/GritzMaze/Scrum-Manager-server/actions/workflows/master-build.yml"><img src="https://github.com/GritzMaze/Scrum-Manager-server/actions/workflows/master-build.yml/badge.svg" alt="build" ></a>
+    <a href="https://github.com/GritzMaze/Scrum-Manager-server/actions/workflows/master-test.yml"><img src="https://github.com/GritzMaze/Scrum-Manager-server/actions/workflows/master-test.yml/badge.svg" alt="build" ></a>
  </div>
 
 <!-- PROJECT LOGO -->
@@ -103,7 +103,7 @@ In order to install the project locally, you need to have Docker installed.
 1. Clone the repo
 
 ```sh
-git clone https://github.com/GritzMaze/server-template.git
+git clone https://github.com/GritzMaze/Scrum-Manager-server.git
 ```
 
 2. Configure the environment variables in the docker-compose.yml file or you can leave the default ones.
@@ -154,6 +154,7 @@ Description of the license can be found [here](https://opensource.org/licenses/M
 <table>
   <tr>
     <td align="center"><a href="https://github.com/GritzMaze"><img src="https://avatars.githubusercontent.com/u/29309862?v=4" width="100px;" alt=""/><br /><sub><b>Vesselin Jivkov</b></sub></a><br /> <a href="#" title="Student">💻</a></td>
+    <td align="center"><a href="https://github.com/DDimitrov0806"><img src="https://avatars.githubusercontent.com/u/29309862?v=4" width="100px;" alt=""/><br /><sub><b>Danail Dimitrov</b></sub></a><br /> <a href="#" title="Student">💻</a></td>
     </tr>
 </table>
 

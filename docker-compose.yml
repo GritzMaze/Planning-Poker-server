@@ -1,7 +1,7 @@
 version: '3'
 services:
   server:
-    container_name: template_server
+    container_name: scrum-manager_server
     build:
       context: ./
       dockerfile: Dockerfile
@@ -11,7 +11,7 @@ services:
       - db
     restart: on-failure
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@db:5432/template?schema=public
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/scrum-manager?schema=public
       JWT_KEY:
       JWT_EXPIRATION: 24h
       APP_PORT: 3000
@@ -21,7 +21,7 @@ services:
       NODE_ENV: development
 
   db:
-    container_name: temlpate_db
+    container_name: scrum-manager_db
     image: postgres:15
     restart: on-failure
     ports:
@@ -29,7 +29,7 @@ services:
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
-      POSTGRES_DB: template
+      POSTGRES_DB: scrum-manager
     volumes:
       - pg_data:/var/lib/postgresql
 volumes:
