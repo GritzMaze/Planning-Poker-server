@@ -4,31 +4,18 @@ import { config as envConfig } from 'dotenv';
 envConfig();
 
 const convictConfig = convict({
+  environment: {
+    doc: 'The application enviroment',
+    format: ['production', 'development', 'test'],
+    default: 'development',
+    env: 'NODE_ENV'
+  },
   db: {
-    user: {
-      doc: 'DB User',
-      env: 'DB_USER',
-      default: 'postgres',
-    },
-    password: {
-      doc: 'DB Password',
-      env: 'DB_PASSWORD',
-      default: 'postgres',
-    },
-    database: {
-      doc: 'DB database name',
-      env: 'DB_NAME',
-      default: 'template_database',
-    },
-    host: {
-      env: 'DB_HOST',
-      format: 'String',
-      default: 'localhost'
-    },
-    port: {
-      env: 'DB_PORT',
-      format: 'port',
-      default: 5432
+    databaseUrl: {
+      doc: 'Database config',
+      env: 'DATABASE_URL',
+      default:
+        'postgresql://postgres:postgres@localhost:5432/scrum-manager?schema=public'
     }
   },
   server: {
@@ -43,7 +30,7 @@ const convictConfig = convict({
     secret: {
       doc: 'JWT Secret',
       format: 'String',
-      default: 'secret',
+      default: '',
       env: 'JWT_SECRET'
     },
     expiresIn: {
@@ -51,6 +38,28 @@ const convictConfig = convict({
       format: 'String',
       default: '2h',
       env: 'JWT_EXPIRES_IN'
+    }
+  },
+  bcrypt: {
+    saltRounds: {
+      doc: 'Bcrypt salt rounds',
+      format: 'Number',
+      default: 10,
+      env: 'BCRYPT_SALT_ROUNDS'
+    }
+  },
+  logger: {
+    level: {
+      doc: 'Logger level',
+      format: ['error', 'warn', 'info', 'verbose', 'debug', 'silly'],
+      default: 'info',
+      env: 'LOG_LEVEL'
+    },
+    directory: {
+      doc: 'Logger directory',
+      format: 'String',
+      default: 'logs',
+      env: 'LOG_DIR'
     }
   }
 });
