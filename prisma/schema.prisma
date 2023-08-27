@@ -8,10 +8,38 @@ datasource db {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  username  String    @unique
+  id        Int      @id @default(autoincrement())
+  username  String   @unique
   password  String
-  email     String?   @unique
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @default(now()) @map("updated_at")
+  email     String?  @unique
+  name      String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+}
+
+model Board {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+  Card      Card[]
+  Column    Column[]
+}
+
+model Column {
+  id        Int      @id @default(autoincrement())
+  name      String
+  boardId   Int
+  board     Board    @relation(fields: [boardId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+}
+
+model Card {
+  id        Int      @id @default(autoincrement())
+  name      String
+  boardId   Int
+  board     Board    @relation(fields: [boardId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
 }

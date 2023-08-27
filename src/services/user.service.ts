@@ -6,6 +6,7 @@ import { BaseDatabaseService } from './base-database.service';
 // in a folder called interfaces and split
 // the interfaces by model-related
 export interface UserCreateInput {
+    name: string;
     username: string;
     password: string;
     email?: string;
@@ -53,7 +54,7 @@ export class UserService extends BaseDatabaseService<User> {
   async create(data: UserCreateInput): Promise<Partial<User>> {
     return await this.prisma.user.create({
       data,
-      select: {id: true, username: true, email: true, createdAt: true }
+      select: {id: true, name:true, username: true, email: true, createdAt: true }
     },
     );
   }

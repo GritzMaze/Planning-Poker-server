@@ -9,13 +9,12 @@ import { InvalidCredentialsError, UserNotExistError } from './errors';
 export class AuthService {
   async login(user: User): Promise<string> {
     const serverUser = await userService.findByUsername(user.username);
-
+    user.password = Buffer.from(user.password, 'base64').toString('ascii');
     if (!serverUser) {
-      throw new UserNotExistError('User does not exist');
+      throw new UserNotExistError('Invalid username or password');
     }
 
     const passwordMatch = await bcrypt.compare(user.password, serverUser.password);
-
     if (!passwordMatch) {
       throw new InvalidCredentialsError('Invalid credentials');
     }
@@ -31,6 +30,7 @@ export class AuthService {
 
   async register(user: UserCreateInput): Promise<Partial<User>> {
     const existingUser = await userService.findByUsername(user.username);
+    user.password = Buffer.from(user.password, 'base64').toString('ascii');
 
     if (existingUser) {
       throw new DuplicatedUsernameError('Username already exists');
