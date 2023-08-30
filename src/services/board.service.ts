@@ -1,10 +1,16 @@
-import { Board, PrismaClient } from '@prisma/client';
+import { Board, Column, PrismaClient } from '@prisma/client';
 import { prisma as prismaService } from './prisma.service';
 import { BaseDatabaseService } from './base-database.service';
 
 interface BoardWithCount {
     total: number;
     boards: Board[];
+}
+
+interface BoardWithColumns {
+    name: string;
+    ownerId: number;
+    columns: Column[];
 }
 
 export class BoardService extends BaseDatabaseService<Board> {
@@ -18,8 +24,8 @@ export class BoardService extends BaseDatabaseService<Board> {
         id
       },
       include: {
-        Card: true,
-        Column: true
+        cards: true,
+        columns: true
       }
     });
   }
@@ -32,7 +38,7 @@ export class BoardService extends BaseDatabaseService<Board> {
     return board;
   }
 
-  async findManyByFilter(filter: string, offset: number): Promise<BoardWithCount> {
+  async findManyByFilter(filter: string, offset: number, limit: number): Promise<BoardWithCount> {
     const [total, boards] = await this.prisma.$transaction([
       this.prisma.board.count({
         where: {
@@ -47,7 +53,7 @@ export class BoardService extends BaseDatabaseService<Board> {
             contains: filter
           }
         },
-        take: 10,
+        take: limit,
         skip: offset
       })
     ]);
@@ -55,6 +61,38 @@ export class BoardService extends BaseDatabaseService<Board> {
       total,
       boards
     };
+  }
+
+  async create(board: BoardWithColumns): Promise<Board> {
+    return this.prisma.board.create({
+      data: {
+        name: board.name,
+        ownerId: board.ownerId,
+        columns: {
+          create: board.columns.map((column) => ({
+            name: column.name,
+            color: column.color
+          }))
+        }
+      }
+    });
+  }
+
+  async delete(id: number): Promise<void> {
+    await this.prisma.board.delete({
+      where: {
+        id
+      }
+    });
+  }
+
+  async update(id: number, board: Board): Promise<Board> {
+    return this.prisma.board.update({
+      where: {
+        id
+      },
+      data: board
+    });
   }
 }
 

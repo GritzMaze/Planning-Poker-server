@@ -9,7 +9,8 @@ import notFound from './notFound';
 import auth from '../middlewares/auth';
 import login from './login';
 import register from './register';
-import board from './board';
+import boards from './board';
+import cards from './card';
 
 const router = Router();
 
@@ -22,7 +23,8 @@ router.use('/register', register);
 
 router.use(auth);
 
-router.use('/boards', board);
+router.use('/boards', boards);
+router.use('/cards', cards);
 
 // TODO: Add routes
 

@@ -23,7 +23,6 @@ export default async function auth(
     next(createError(400, 'Invalid token type'));
     return;
   }
-
   try {
     const payload = jwt.verify(jwtToken, jwtKey);
     const { id } = payload as any;
