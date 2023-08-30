@@ -41,7 +41,7 @@ export default async function auth(
       return;
     }
 
-    next(createError(401, 'Invalid token'));
+    next(createError(401, 'Invalid token', err));
     return;
   }
 }

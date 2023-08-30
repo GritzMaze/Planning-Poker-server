@@ -19,7 +19,7 @@ export class AuthService {
       throw new InvalidCredentialsError('Invalid credentials');
     }
 
-    const payload = { username: user.username, id: user.id };
+    const payload = { username: user.username, id: serverUser.id };
 
     return await jwtService.sign(payload);
   }
