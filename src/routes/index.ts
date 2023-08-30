@@ -9,6 +9,7 @@ import notFound from './notFound';
 import auth from '../middlewares/auth';
 import login from './login';
 import register from './register';
+import board from './board';
 
 const router = Router();
 
@@ -20,6 +21,8 @@ router.use('/login', login);
 router.use('/register', register);
 
 router.use(auth);
+
+router.use('/boards', board);
 
 // TODO: Add routes
 
