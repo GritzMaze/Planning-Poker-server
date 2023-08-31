@@ -24,8 +24,15 @@ export class BoardService extends BaseDatabaseService<Board> {
         id
       },
       include: {
-        cards: true,
-        columns: true
+        columns: {
+          include: {
+            cards: {
+              include: {
+                assignedTo: true,
+              }
+            }
+          }
+        }
       }
     });
   }
@@ -54,7 +61,10 @@ export class BoardService extends BaseDatabaseService<Board> {
           }
         },
         take: limit,
-        skip: offset
+        skip: offset,
+        include: {
+          owner: true,
+        }
       })
     ]);
     return {
@@ -86,12 +96,23 @@ export class BoardService extends BaseDatabaseService<Board> {
     });
   }
 
-  async update(id: number, board: Board): Promise<Board> {
+  async update(id: number, board: BoardWithColumns): Promise<Board> {
     return this.prisma.board.update({
       where: {
         id
       },
-      data: board
+      data: {
+        name: board.name,
+        columns: {
+          deleteMany: { boardId: id },
+          createMany: {
+            data: board.columns.map((column) => ({
+              name: column.name,
+              color: column.color
+            }))
+          }
+        }
+      }
     });
   }
 }

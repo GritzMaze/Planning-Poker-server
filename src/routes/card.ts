@@ -44,5 +44,19 @@ router.delete('/:id', async (req, res, next) => {
   }
 });
 
+router.put('/:id', async (req, res, next) => {
+  const id = parseInt(req.params.id, 10);
+  const card = req.body;
+  
+  try {
+    const updatedCard = await cardService.update(id, card);
+    res.json(updatedCard);
+    return;
+  } catch (err) {
+    next(createHttpError(500, err));
+    return;
+  }
+});
+
 
 export default router;

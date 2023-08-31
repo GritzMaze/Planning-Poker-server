@@ -11,6 +11,8 @@ import login from './login';
 import register from './register';
 import boards from './board';
 import cards from './card';
+import columns from './column';
+import users from './user';
 
 const router = Router();
 
@@ -25,6 +27,8 @@ router.use(auth);
 
 router.use('/boards', boards);
 router.use('/cards', cards);
+router.use('/columns', columns);
+router.use('/users', users);
 
 // TODO: Add routes
 

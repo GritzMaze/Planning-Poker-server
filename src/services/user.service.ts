@@ -58,6 +58,10 @@ export class UserService extends BaseDatabaseService<User> {
     },
     );
   }
+
+  async findAll(): Promise<User[]> {
+    return await this.prisma.user.findMany();
+  }
 }
 
 export const userService = new UserService();

@@ -10,6 +10,9 @@ class CardService extends BaseDatabaseService<Card> {
     return await this.prisma.card.findUnique({
       where: {
         id
+      },
+      include: {
+        assignedTo: true,
       }
     });
   }
@@ -24,7 +27,14 @@ class CardService extends BaseDatabaseService<Card> {
 
   async create(card: Card): Promise<Card> {
     return await this.prisma.card.create({
-      data: card
+      data: {
+        name: card.name,
+        description: card.description,
+        assignedToId: card.assignedToId,
+        columnId: card.columnId,
+        boardId: card.boardId,
+        priority: card.priority
+      }
     });
   }
 
@@ -41,7 +51,15 @@ class CardService extends BaseDatabaseService<Card> {
       where: {
         id
       },
-      data: card
+      data: {
+        name: card.name,
+        description: card.description,
+        assignedToId: card.assignedToId,
+        columnId: card.columnId,
+        boardId: card.boardId,
+        priority: card.priority,
+        updatedAt: new Date()
+      }
     });
   }
 }
